@@ -7,7 +7,8 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
  * @date 2020-07-13
  */
 public class MyLock {
-    abstract static class Sync extends AbstractQueuedSynchronizer{
+
+    abstract static class Sync extends AbstractQueuedSynchronizer {
 
     }
 }
