@@ -1,5 +1,9 @@
 package com.xfeng.example.tree;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 /**
  * @author xuefeng.wang
  * @date 2020-08-06
@@ -10,6 +14,14 @@ public class RBTree<T extends Comparable<T>> {
 
     private static final boolean RED = false;
     private static final boolean BLACK = true;
+
+    public RBTNode<T> getmRoot() {
+        return mRoot;
+    }
+
+    public void setmRoot(RBTNode<T> mRoot) {
+        this.mRoot = mRoot;
+    }
 
     public static boolean isRED() {
         return RED;
@@ -34,6 +46,65 @@ public class RBTree<T extends Comparable<T>> {
             this.right = right;
         }
 
+        public boolean isColor() {
+            return color;
+        }
+
+        public void setColor(boolean color) {
+            this.color = color;
+        }
+
+        public T getKey() {
+            return key;
+        }
+
+        public void setKey(T key) {
+            this.key = key;
+        }
+
+        public RBTNode<T> getLeft() {
+            return left;
+        }
+
+        public void setLeft(RBTNode<T> left) {
+            this.left = left;
+        }
+
+        public RBTNode<T> getRight() {
+            return right;
+        }
+
+        public void setRight(RBTNode<T> right) {
+            this.right = right;
+        }
+
+        public RBTNode<T> getParent() {
+            return parent;
+        }
+
+        public void setParent(RBTNode<T> parent) {
+            this.parent = parent;
+        }
+    }
+
+    /**
+     * 前序遍历 父->左->右
+     *
+     * @return
+     */
+    public List<T> PreorderTraversal() {
+        List<T> result = new ArrayList<>();
+        dfs(this.mRoot, result);
+        return result;
+    }
+
+    private void dfs(RBTNode<T> root, List<T> result) {
+        if (Objects.isNull(root)) {
+            return;
+        }
+        result.add(root.key);
+        dfs(root.left, result);
+        dfs(root.right, result);
     }
 
     /*
