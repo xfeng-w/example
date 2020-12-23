@@ -109,17 +109,6 @@ public class RBTree<T extends Comparable<T>> {
 
     /*
      * 对红黑树的节点(x)进行左旋转
-     *
-     * 左旋示意图(对节点x进行左旋)：
-     *      px                              px
-     *     /                               /
-     *    x                               y
-     *   /  \      --(左旋)-.           / \                #
-     *  lx   y                          x  ry
-     *     /   \                       /  \
-     *    ly   ry                     lx  ly
-     *
-     *
      */
     private void leftRotate(RBTNode<T> x) {
         // 设置x的右孩子为y
@@ -151,16 +140,6 @@ public class RBTree<T extends Comparable<T>> {
 
     /*
      * 对红黑树的节点(y)进行右旋转
-     *
-     * 右旋示意图(对节点y进行左旋)：
-     *            py                               py
-     *           /                                /
-     *          y                                x
-     *         /  \      --(右旋)-.            /  \                     #
-     *        x   ry                           lx   y
-     *       / \                                   / \                   #
-     *      lx  rx                                rx  ry
-     *
      */
     private void rightRotate(RBTNode<T> y) {
         // 设置x是当前节点的左孩子。
@@ -194,8 +173,7 @@ public class RBTree<T extends Comparable<T>> {
     /*
      * 将结点插入到红黑树中
      *
-     * 参数说明：
-     *     node 插入的结点        // 对应《算法导论》中的node
+     *     node 插入的结点
      */
     private void insert(RBTNode<T> node) {
         int cmp;
@@ -232,8 +210,6 @@ public class RBTree<T extends Comparable<T>> {
 
     /*
      * 新建结点(key)，并将其插入到红黑树中
-     *
-     * 参数说明：
      *     key 插入结点的键值
      */
     public void insert(T key) {
@@ -249,8 +225,6 @@ public class RBTree<T extends Comparable<T>> {
      *
      * 在向红黑树中插入节点之后(失去平衡)，再调用该函数；
      * 目的是将它重新塑造成一颗红黑树。
-     *
-     * 参数说明：
      *     node 插入的结点        // 对应《算法导论》中的z
      */
     private void insertFixUp(RBTNode<T> node) {
@@ -318,8 +292,6 @@ public class RBTree<T extends Comparable<T>> {
 
     /*
      * 删除结点(node)，并返回被删除的结点
-     *
-     * 参数说明：
      *     node 删除的结点
      */
     private void remove(RBTNode<T> node) {
@@ -410,8 +382,6 @@ public class RBTree<T extends Comparable<T>> {
 
     /*
      * 删除结点(z)，并返回被删除的结点
-     *
-     * 参数说明：
      *     tree 红黑树的根结点
      *     z 删除的结点
      */
@@ -427,8 +397,6 @@ public class RBTree<T extends Comparable<T>> {
      *
      * 在从红黑树中删除插入节点之后(红黑树失去平衡)，再调用该函数；
      * 目的是将它重新塑造成一颗红黑树。
-     *
-     * 参数说明：
      *     node 待修正的节点
      */
     private void removeFixUp(RBTNode<T> node, RBTNode<T> parent) {
