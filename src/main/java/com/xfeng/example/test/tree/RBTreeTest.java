@@ -11,10 +11,10 @@ import java.util.List;
 public class RBTreeTest {
     public static void main(String[] args) {
         RBTree<Integer> rbTree = new RBTree<>();
-        rbTree.insert(5);
-        System.out.println(rbTree.getmRoot().isColor());
-        rbTree.insert(6);
-        rbTree.insert(7);
+        rbTree.insert(1);
+        rbTree.insert(2);
+        rbTree.insert(3);
+        rbTree.insert(4);
         List<Integer> result = rbTree.PreorderTraversal();
 
         System.out.println(result);
